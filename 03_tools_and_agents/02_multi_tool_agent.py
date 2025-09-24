@@ -1,7 +1,7 @@
 from langchain_openai import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType, Tool
 from utils.safe_math import eval_expr
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 from utils.config import OPENAI_API_KEY
 import os
@@ -51,9 +51,9 @@ agent = initialize_agent(
 
 if __name__ == "__main__":
     q1 = "(12 * 9) / 3 + 5"
-    print("Q1:", q1)
-    print("A1:", agent.run(q1))
+    res1 = agent.invoke({"input": q1})
+    print("A1:", res1["output"])
 
     q2 = "What is LangGraph and how is it different from LangChain? Use RAGSearch if helpful."
-    print("\nQ2:", q2)
-    print("A2:", agent.run(q2))
+    res2 = agent.invoke({"input": q2})
+    print("A2:", res2["output"])

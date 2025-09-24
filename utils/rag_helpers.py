@@ -1,7 +1,7 @@
 from typing import Optional
 import os
 from langchain_openai import OpenAIEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 def get_embeddings(api_key: Optional[str] = None):

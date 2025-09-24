@@ -1,6 +1,7 @@
 from langchain_openai import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType
 from langchain.agents import Tool
+from utils.config import OPENAI_API_KEY
 import math
 
 # Define a simple tool
@@ -20,7 +21,7 @@ tools = [
 ]
 
 # Initialize model
-llm = ChatOpenAI(model="gpt-4o-mini")
+llm = ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY)
 
 # Create agent with tool
 agent = initialize_agent(
